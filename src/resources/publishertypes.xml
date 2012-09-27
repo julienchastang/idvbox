@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<publishers>
+	<publisher name="Dropbox Publisher" class="edu.ucar.idvbox.DropboxPublisher">
+	</publisher>
+</publishers>

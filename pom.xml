@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>edu.ucar</groupId>
+	<artifactId>idvbox</artifactId>
+	<version>0.0.2</version>
+	<packaging>jar</packaging>
+
+	<name>idvbox</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<artifactSet>
+						<excludes>
+							<exclude>edu.wisc.ssec:visad</exclude>
+							<exclude>edu.ucar:idv</exclude>
+						</excludes>
+					</artifactSet>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- VisAD can be found here https://github.com/julienchastang/VisAD -->
+		<!-- mvn install (you'll need Java3D in your JRE) -->
+		<dependency>
+			<groupId>edu.wisc.ssec</groupId>
+			<artifactId>visad</artifactId>
+			<version>2.0-20120726</version>
+		</dependency>
+		<!-- The IDV can be found here https://github.com/Unidata/IDV. It has not 
+			been Mavenized so you must Maven install it. First build the project with 
+			ant. Then -->
+		<!-- mvn install:install-file -Dfile=lib/idv.jar -DgroupId=edu.ucar. -DartifactId=idv 
+			-Dversion=X.X -Dpackaging=jar -->
+		<dependency>
+			<groupId>edu.ucar</groupId>
+			<artifactId>idv</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<!-- Download the Dropbox Java SDK https://www.dropbox.com/developers/reference/sdk -->
+		<!-- mvn -DskipTests=true install -->
+		<dependency>
+			<groupId>com.dropbox.client2</groupId>
+			<artifactId>dropbox-client</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- Need to include this transitive runtime dependency for commons-logging 
+			(required by Dropbox), but how come Maven does not figure this out? -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+	</dependencies>
+	<description>Dropbox content management for the Unidata Integrated Data Viewer (IDV)</description>
+	<organization>
+		<name>Unidata</name>
+		<url>http://www.unidata.ucar.edu/</url>
+	</organization>
+	<inceptionYear>2012</inceptionYear>
+	<scm>
+		<url>https://github.com/Unidata/idvbox</url>
+		<developerConnection>Unidata IDV Team</developerConnection>
+		<connection>git://github.com/Unidata/idvbox.git</connection>
+	</scm>
+</project>

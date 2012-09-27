@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<object class="java.util.ArrayList">
+	<method name="add">
+		<object class="edu.ucar.idvbox.DropboxPublisher">
+			<property name="Name">
+				<string><![CDATA[Dropbox publisher]]></string>
+			</property>
+		</object>
+	</method>
+</object>

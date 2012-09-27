@@ -10,7 +10,7 @@ Dropbox content management for the [Unidata Integrated Data Viewer (IDV)](http:/
 4. When saving content within the IDV, select Dropbox in the "Selecting Publisher" menu.
 5. Your IDV content is now on Dropbox.
 
-If you have trouble [submit an issue](https://github.com/Unidata/idvbox/issues).
+If you have trouble [submit an issue](https://github.com/julienchastang/idvbox/issues).
 
 ***
 

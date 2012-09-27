@@ -167,7 +167,7 @@ public class DropboxPublisher extends IdvPublisher {
             Desktop.getDesktop().browse(new URL(url).toURI());
             JOptionPane.showMessageDialog(
                 null,
-                "Invoking brower to sign in to Dropbox. Press OK after you have authenticated.");
+                "Invoking browser to sign in to Dropbox. Press OK after you have authenticated.");
 
             session.retrieveWebAccessToken(pair);
             api = new DropboxAPI<WebAuthSession>(session);
